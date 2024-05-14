@@ -1,11 +1,11 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "shader.h"
+#include "villager.h"
 
 /* Globals */
-unsigned int vao;
+unsigned int vao, vbo;
 unsigned int shader_program;
-
 
 /**
  * Sets up the vertex data and buffers.
@@ -22,7 +22,6 @@ void setup_data() {
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-    unsigned int vbo;
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -41,21 +40,32 @@ void render_triangle() {
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
-
 /**
- * The main rendering loop.
- * 
- * @param window The GLFW window to render to.
+ * Renders the villagers as dots.
  */
-void main_loop(GLFWwindow* window) {
-    while (!glfwWindowShouldClose(window)) {
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        render_triangle();
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+void render_villagers(Villager* villagers, int count) {
+    float vertices[6 * count]; // 2 coordinates per villager, 3 components (x, y, z)
+    
+    for (int i = 0; i < count; ++i) {
+        vertices[6 * i]     = villagers[i].x / (SCREEN_WIDTH / 2) - 1.0f;
+        vertices[6 * i + 1] = villagers[i].y / (SCREEN_HEIGHT / 2) - 1.0f;
+        vertices[6 * i + 2] = 0.0f; // z coordinate
+        vertices[6 * i + 3] = 1.0f; // r
+        vertices[6 * i + 4] = 1.0f; // g
+        vertices[6 * i + 5] = 1.0f; // b
     }
+
+    glBindVertexArray(vao);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    glUseProgram(shader_program);
+    glDrawArrays(GL_POINTS, 0, count);
 }
 
 void initialize_renderer() {

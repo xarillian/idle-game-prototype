@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Iinclude
 LDFLAGS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl -lm
 
-SRC = src/main.c src/glad.c src/shader.c src/renderer.c src/init.c
+SRC = src/main.c src/glad.c src/shader.c src/renderer.c src/init.c src/villager.c
 OBJ = $(SRC:.c=.o)
 
 TARGET = toy_project

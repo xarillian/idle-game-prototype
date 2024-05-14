@@ -1,11 +1,16 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <stdio.h>
-#include "init.h"
 
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
+#include "init.h"
+#include "villager.h"
+#include "renderer.h"
+
+#define MAX_VILLAGERS 100
+
 const char* WINDOW_TITLE = "OpenGL :)";
+int villager_count = 5;
+Villager villagers[MAX_VILLAGERS];
 
 int main(void) {
     GLFWwindow* window = initialize(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
@@ -14,7 +19,16 @@ int main(void) {
     }
 
     initialize_renderer();
-    main_loop(window);
+    initialize_villagers(5);
+    while (!glfwWindowShouldClose(window)) {
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        update_villagers();
+        render_villagers(villagers, 5);
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
 
     cleanup();
     return 0;
