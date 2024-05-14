@@ -1,0 +1,5 @@
+*venv*
+.vscode
+src/*.o
+.env
+toy_project
