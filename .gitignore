@@ -3,3 +3,6 @@
 src/*.o
 .env
 toy_project
+
+startup.md
+initial_designs.md
