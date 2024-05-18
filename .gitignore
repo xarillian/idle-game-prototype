@@ -3,6 +3,6 @@
 src/*.o
 .env
 toy_project
-
+*.pyc
 startup.md
 initial_designs.md
