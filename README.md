@@ -51,9 +51,15 @@ THAT'S MVP
     - complex social dynamics
         - reputation system -- renown/infamy
         - friendships and rivalries -- defined relationships between villagers
+    - villager living spaces
+    - villager work posts
+    - brainstorm monetization
     - trade + economy
         - resource gathering
         - trade between villagers
     - advance reproduction
         - include additional traits
         - genetic system
+    - player interaction
+    - quests + advancement (daily's?)
+        - bonus XP(? not even implemented yet), faster resource gathering, villager disputes
