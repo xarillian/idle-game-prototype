@@ -14,6 +14,9 @@ Cython -> Communication Layer
 
 The project needs to be small. As an idle game, the user shouldn't expect it to take up any resources -- there might be some leeway, since more technically adept users would spot it using an LLM but that's an assumption.
 
+### New Considerations
+However, C development is slow. we should start by rapidly prototyping in Python -- something it really excels at. When we have something worth showing off, we can consider performance and a re-write at that point.
+
 ## Implementation Plan
 - ~~project structure~~ base structure found
 - ~~opengl setup~~ rainbow triangle achieved
