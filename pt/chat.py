@@ -4,8 +4,6 @@ from pt.villager import Villager
 
 def villager_chat(client, screen, villager_1: Villager, villager_2: Villager):
     """ 
-    TODO this needs to be decomposed a lot
-
     Builds a conversation between two villagers.
 
     Args:
@@ -14,6 +12,7 @@ def villager_chat(client, screen, villager_1: Villager, villager_2: Villager):
         villager1: The first villager involved in the interaction.
         villager2: The second villager involved in the interaction.
     """
+    # TODO this needs to be decomposed a lot
     response_1 = client.chat.completions.create(
         model='gpt-3.5-turbo',
           messages=[

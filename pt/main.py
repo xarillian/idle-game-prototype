@@ -1,6 +1,7 @@
 import pygame
 
 from pt.chat import villager_chat
+from pt.config import INITIAL_SCREEN_HEIGHT, INITIAL_SCREEN_WIDTH, INITIAL_VILLAGER_COUNT
 from pt.render import (
     clear_interaction,
     display_interaction,
@@ -13,18 +14,14 @@ from pt.villager import initialize_villagers
 
 
 def main():
-    screen_width = 800
-    screen_height = 600
-    villager_count = 4
-
     pygame.init()
-    screen = pygame.display.set_mode((screen_width, screen_height), pygame.RESIZABLE)
+    screen = pygame.display.set_mode((INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT), pygame.RESIZABLE)
     pygame.display.set_caption("idle game prototype")
 
     clock = pygame.time.Clock()
 
     client = initialize_llm()
-    villagers = initialize_villagers(villager_count, screen_width, screen_height)
+    villagers = initialize_villagers(INITIAL_VILLAGER_COUNT, INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT)
 
     running = True
     while running:
@@ -50,6 +47,7 @@ def main():
         clock.tick(60)
 
     pygame.quit()
+
 
 if __name__ == "__main__":
     main()

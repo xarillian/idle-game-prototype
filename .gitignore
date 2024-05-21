@@ -7,3 +7,4 @@ toy_project
 __pycache__
 startup.md
 initial_designs.md
+.pytest_cache

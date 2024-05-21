@@ -54,8 +54,8 @@ def interaction_check(villagers: list[Villager], current_time: float):
             if current_time - villager1.last_interaction > INTERACTION_TIMEOUT and \
                     current_time - villager2.last_interaction > INTERACTION_TIMEOUT:
                 distance = villager1.position.distance_to(villager2.position)
-                if distance < INTERACTION_RADIUS:  # TODO shouldn't set this here
-                    villager1.last_interaction = current_time
+                if distance < INTERACTION_RADIUS:
+                    villager1.last_interaction = current_time  # TODO shouldn't set this here, decomp
                     villager2.last_interaction = current_time
                     return villager1, villager2
     return None
