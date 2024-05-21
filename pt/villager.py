@@ -20,8 +20,8 @@ def initialize_villagers(count: int, screen_width: int, screen_height: int):
     Returns:
         list: A list of Villager instances.
     """
-    with open('pt/first-names.txt', 'r', encoding='utf-8') as names_file:
-        with open('pt/evil-personality-traits.txt', 'r', encoding='utf-8') as traits_file:
+    with open('static/first-names.txt', 'r', encoding='utf-8') as names_file:
+        with open('static/evil-personality-traits.txt', 'r', encoding='utf-8') as traits_file:
             names = names_file.read().splitlines()
             traits = traits_file.read().splitlines()
             return [

@@ -23,6 +23,8 @@ def main():
     client = initialize_llm()
     villagers = initialize_villagers(INITIAL_VILLAGER_COUNT, INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT)
 
+    screen_width = INITIAL_SCREEN_WIDTH
+    screen_height = INITIAL_SCREEN_HEIGHT
     running = True
     while running:
         current_time = pygame.time.get_ticks()
