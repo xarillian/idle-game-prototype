@@ -29,10 +29,10 @@ def update_villagers(villagers: list, screen_width: int, screen_height: int):
         screen_height (int): The current height of the screen.
     """
     for villager in villagers:
-        villager.update(screen_width, screen_height)
+        villager.update_position(screen_width, screen_height)
 
 
-def render_villagers(view, villagers: list):
+def render_villagers(view, villagers: list[Villager]):
     """
     Renders all villagers on the screen.
 
@@ -42,7 +42,12 @@ def render_villagers(view, villagers: list):
     """
     view.fill((0, 0, 0))
     for villager in villagers:
-        pygame.draw.circle(view, (255, 255, 255), (int(villager.x), int(villager.y)), 5)
+        pygame.draw.circle(
+            view, 
+            (255, 255, 255), 
+            (int(villager.position[0]), int(villager.position[1])), 
+            5
+        )
     pygame.display.flip()
 
 

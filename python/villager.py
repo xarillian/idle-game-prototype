@@ -1,29 +1,50 @@
 import random
+import pygame
+
+from typing import Optional
 
 
-SPEED_FACTOR = 2
+
+DEFAULT_SPEED_FACTOR = 2
 
 
 class Villager:
     """
-    Represents a villager.
+    Represents a single villager.
 
     Attributes:
-        x (float): The x-coordinate of the villager.
-        y (float): The y-coordinate of the villager.
-        vx (float): The velocity of the villager along the x-axis.
-        vy (float): The velocity of the villager along the y-axis.
+        position (tuple[float, float]): the x-, y- cordinates of the villager.
+        velocity (tuple[float, float]): the velocity along the x, y axis.
     """
 
-    def __init__(self, screen_width: int, screen_height: int):
-        self.screen_width = screen_width
-        self.screen_height = screen_height
-        self.x: float = random.randint(0, screen_width)
-        self.y: float = random.randint(0, screen_height)
-        self.vx: float = random.uniform(-1, 1) * SPEED_FACTOR
-        self.vy: float = random.uniform(-1, 1) * SPEED_FACTOR
+    def __init__(
+            self,
+            screen_width: int,
+            screen_height: int,
+            speed_factor: Optional[int] = None
+    ) -> None:
+        self.x_boundary = screen_width
+        self.y_boundary = screen_height
+        self.speed = speed_factor if speed_factor else DEFAULT_SPEED_FACTOR
 
-    def update(self, screen_width: int, screen_height: int):
+        self.set_position(random.randint(0, self.x_boundary), random.randint(0, self.y_boundary))
+
+        self.velocity = pygame.math.Vector2(
+            random.uniform(-1, 1) * self.speed,
+            random.uniform(-1, 1) * self.speed
+        )
+
+    def set_position(self, x: float, y: float) -> None:
+        """
+        Sets the villager's position.
+        
+        Args:
+            x (float): The new x-coordinate.
+            y (float): The new y-coordinate.
+        """
+        self.position = pygame.math.Vector2(x, y)
+
+    def update_position(self, screen_width: int, screen_height: int) -> None:
         """
         Updates the villager's position based on its velocity and the current screen dimensions.
         
@@ -31,19 +52,20 @@ class Villager:
             screen_width (int): The current width of the screen.
             screen_height (int): The current height of the screen.
         """
-        self.x += self.vx
-        self.y += self.vy
 
-        if self.x < 0:
-            self.x = 0
-            self.vx = -self.vx
-        elif self.x > screen_width:
-            self.x = screen_width
-            self.vx = -self.vx
+        self.position += self.velocity
 
-        if self.y < 0:
-            self.y = 0
-            self.vy = -self.vy
-        elif self.y > screen_height:
-            self.y = screen_height
-            self.vy = -self.vy
+        # Bounce off the walls and ensure villagers stay within boundaries
+        if self.position.x < 0:
+            self.position.x = 0
+            self.velocity.x = -self.velocity.x
+        elif self.position.x > screen_width:
+            self.position.x = screen_width
+            self.velocity.x = -self.velocity.x
+
+        if self.position.y < 0:
+            self.position.y = 0
+            self.velocity.y = -self.velocity.y
+        elif self.position.y > screen_height:
+            self.position.y = screen_height
+            self.velocity.y = -self.velocity.y
