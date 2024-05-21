@@ -20,7 +20,18 @@ def initialize_villagers(count: int, screen_width: int, screen_height: int):
     Returns:
         list: A list of Villager instances.
     """
-    return [Villager(screen_width, screen_height) for _ in range(count)]
+    with open('pt/first-names.txt', 'r', encoding='utf-8') as names_file:
+        with open('pt/evil-personality-traits.txt', 'r', encoding='utf-8') as traits_file:
+            names = names_file.read().splitlines()
+            traits = traits_file.read().splitlines()
+            return [
+                Villager(
+                    screen_width,
+                    screen_height,
+                    random.choice(names),
+                    [random.choice(traits), random.choice(traits), random.choice(traits)]
+                ) for _ in range(count)
+            ]
 
 
 class Villager:
@@ -32,18 +43,24 @@ class Villager:
         velocity (tuple[float, float]): the velocity along the x, y axis.
     """
 
+    tokens_used = 0
+    last_interaction = 0
+
     def __init__(
             self,
             screen_width: int,
             screen_height: int,
+            name: str,
+            personality_traits: list[str],
             speed_factor: Optional[int] = None
     ) -> None:
         self.x_boundary = screen_width
         self.y_boundary = screen_height
+        self.name = name
+        self.personality_traits = personality_traits
         self.speed = speed_factor if speed_factor else DEFAULT_SPEED_FACTOR
 
         self.set_position(random.randint(0, self.x_boundary), random.randint(0, self.y_boundary))
-
         self.velocity = pygame.math.Vector2(
             random.uniform(-1, 1) * self.speed,
             random.uniform(-1, 1) * self.speed
