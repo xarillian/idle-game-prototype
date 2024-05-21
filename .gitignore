@@ -3,6 +3,8 @@
 src/*.o
 .env
 toy_project
-
+*.pyc
+__pycache__
 startup.md
 initial_designs.md
+.pytest_cache

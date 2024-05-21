@@ -7,7 +7,7 @@ toy_project/
 │   ├── renderer.h
 |   ├── villager.h
 │   └── shader.h
-├── python/
+├── pt/
 ├── src/
 │   ├── glad.c
 │   ├── main.c

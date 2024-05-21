@@ -1,0 +1,103 @@
+import random
+import pygame
+
+from typing import Optional
+
+
+
+DEFAULT_SPEED_FACTOR = 2
+
+
+def initialize_villagers(count: int, screen_width: int, screen_height: int):
+    """
+    Initializes a list of villagers.
+
+    Args:
+        count (int): The number of villagers.
+        screen_width (int): The width of the screen.
+        screen_height (int): The height of the screen.
+    
+    Returns:
+        list: A list of Villager instances.
+    """
+    with open('pt/first-names.txt', 'r', encoding='utf-8') as names_file:
+        with open('pt/evil-personality-traits.txt', 'r', encoding='utf-8') as traits_file:
+            names = names_file.read().splitlines()
+            traits = traits_file.read().splitlines()
+            return [
+                Villager(
+                    screen_width,
+                    screen_height,
+                    random.choice(names),
+                    [random.choice(traits), random.choice(traits), random.choice(traits)]
+                ) for _ in range(count)
+            ]
+
+
+class Villager:
+    """
+    Represents a single villager.
+
+    Attributes:
+        position (tuple[float, float]): the x-, y- cordinates of the villager.
+        velocity (tuple[float, float]): the velocity along the x, y axis.
+    """
+
+    tokens_used = 0
+    last_interaction = 0
+
+    def __init__(
+            self,
+            screen_width: int,
+            screen_height: int,
+            name: str,
+            personality_traits: list[str],
+            speed_factor: Optional[int] = None
+    ) -> None:
+        self.x_boundary = screen_width
+        self.y_boundary = screen_height
+        self.name = name
+        self.personality_traits = personality_traits
+        self.speed = speed_factor if speed_factor else DEFAULT_SPEED_FACTOR
+
+        self.set_position(random.randint(0, self.x_boundary), random.randint(0, self.y_boundary))
+        self.velocity = pygame.math.Vector2(
+            random.uniform(-1, 1) * self.speed,
+            random.uniform(-1, 1) * self.speed
+        )
+
+    def set_position(self, x: float, y: float) -> None:
+        """
+        Sets the villager's position.
+        
+        Args:
+            x (float): The new x-coordinate.
+            y (float): The new y-coordinate.
+        """
+        self.position = pygame.math.Vector2(x, y)
+
+    def update_position(self, screen_width: int, screen_height: int) -> None:
+        """
+        Updates the villager's position based on its velocity and the current screen dimensions.
+        
+        Args:
+            screen_width (int): The current width of the screen.
+            screen_height (int): The current height of the screen.
+        """
+
+        self.position += self.velocity
+
+        # Bounce off the walls and ensure villagers stay within boundaries
+        if self.position.x < 0:
+            self.position.x = 0
+            self.velocity.x = -self.velocity.x
+        elif self.position.x > screen_width:
+            self.position.x = screen_width
+            self.velocity.x = -self.velocity.x
+
+        if self.position.y < 0:
+            self.position.y = 0
+            self.velocity.y = -self.velocity.y
+        elif self.position.y > screen_height:
+            self.position.y = screen_height
+            self.velocity.y = -self.velocity.y
