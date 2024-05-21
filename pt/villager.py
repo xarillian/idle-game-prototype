@@ -8,6 +8,21 @@ from typing import Optional
 DEFAULT_SPEED_FACTOR = 2
 
 
+def initialize_villagers(count: int, screen_width: int, screen_height: int):
+    """
+    Initializes a list of villagers.
+
+    Args:
+        count (int): The number of villagers.
+        screen_width (int): The width of the screen.
+        screen_height (int): The height of the screen.
+    
+    Returns:
+        list: A list of Villager instances.
+    """
+    return [Villager(screen_width, screen_height) for _ in range(count)]
+
+
 class Villager:
     """
     Represents a single villager.
