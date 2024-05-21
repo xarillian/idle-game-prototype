@@ -22,13 +22,13 @@ However, C development is slow. we should start by rapidly prototyping in Python
 - ~~Project Structure~~ base structure found
 - ~~OpenGL Setup~~ Rainbow triangle achieved
 - ~~Dots bouncing around~~ We have those dots bouncing
-- Early prototype re-write in Python <- here
+- ~~Early prototype re-write in Python~~ snake-like
 - Movment speed slider (only required debug feature)
-- Conversations triggered within radius, pause all movement until conversation ends. Zoom on conversation.
+- ~~Conversations triggered within radius, pause all movement until conversation ends. Zoom on conversation.~~ faked the zoom but that's okay
   - Can be implemented with 5s pause.
-- Rudimentary conversations (no RAG)
-  - Base personality implementation
-- RAG
+- ~~Rudimentary conversations (no RAG)~~
+  - ~~Base personality implementation~~ random personalities (includes evil!)
+- RAG <- here
   - Basic memory about conversations + other villagers
 - Villager death: compare tokens used vs max tokens
 - Villager reproduction: merge personalities after an undefined trigger event and spawn new villager
