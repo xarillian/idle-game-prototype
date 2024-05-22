@@ -8,32 +8,6 @@ from typing import Optional
 DEFAULT_SPEED_FACTOR = 2
 
 
-def initialize_villagers(count: int, screen_width: int, screen_height: int):
-    """
-    Initializes a list of villagers.
-
-    Args:
-        count (int): The number of villagers.
-        screen_width (int): The width of the screen.
-        screen_height (int): The height of the screen.
-    
-    Returns:
-        list: A list of Villager instances.
-    """
-    with open('static/first-names.txt', 'r', encoding='utf-8') as names_file:
-        with open('static/evil-personality-traits.txt', 'r', encoding='utf-8') as traits_file:
-            names = names_file.read().splitlines()
-            traits = traits_file.read().splitlines()
-            return [
-                Villager(
-                    screen_width,
-                    screen_height,
-                    random.choice(names),
-                    [random.choice(traits), random.choice(traits), random.choice(traits)]
-                ) for _ in range(count)
-            ]
-
-
 class Villager:
     """
     Represents a single villager.

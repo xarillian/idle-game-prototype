@@ -2,7 +2,7 @@ from pt.render import render_chat
 from pt.villager import Villager
 
 
-def villager_chat(client, screen, villager_1: Villager, villager_2: Villager):
+def villager_chat(screen, client, villager_1: Villager, villager_2: Villager):
     """ 
     Builds a conversation between two villagers.
 

@@ -1,30 +1,26 @@
 import pygame
 
-from pt.chat import villager_chat
-from pt.config import INITIAL_SCREEN_HEIGHT, INITIAL_SCREEN_WIDTH, INITIAL_VILLAGER_COUNT
+from pt.config import INITIAL_SCREEN_HEIGHT, INITIAL_SCREEN_WIDTH
+from pt.game import handle_interaction
 from pt.render import (
-    clear_interaction,
-    display_interaction,
     interaction_check,
     render_villagers,
     update_villagers,
 )
-from pt.setup import initialize_llm
-from pt.villager import initialize_villagers
+from pt.setup import initialize_components
 
 
-def main():
-    pygame.init()
-    screen = pygame.display.set_mode((INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT), pygame.RESIZABLE)
-    pygame.display.set_caption("idle game prototype")
+def main_loop(screen_width, screen_height):
+    """
+    Main game loop.
 
+    Args:
+        screen_width (int): Initial width of the game screen.
+        screen_height (int): Initial height of the game screen.
+    """
+    screen, client, villagers = initialize_components()
     clock = pygame.time.Clock()
 
-    client = initialize_llm()
-    villagers = initialize_villagers(INITIAL_VILLAGER_COUNT, INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT)
-
-    screen_width = INITIAL_SCREEN_WIDTH
-    screen_height = INITIAL_SCREEN_HEIGHT
     running = True
     while running:
         current_time = pygame.time.get_ticks()
@@ -34,22 +30,20 @@ def main():
                 running = False
             elif event.type == pygame.VIDEORESIZE:
                 screen_width, screen_height = event.w, event.h
+                screen = pygame.display.set_mode((screen_width, screen_height), pygame.RESIZABLE)
 
         interaction = interaction_check(villagers, current_time)
         if interaction:
-            villager_1, villager_2 = interaction  # TODO I hate this pattern
-            original_view = screen.copy()
-            display_interaction(screen)
-            villager_chat(client, screen, villager_1, villager_2)
-            clear_interaction(screen, original_view)
+            handle_interaction(screen, client, villagers, interaction)
 
         update_villagers(villagers, screen_width, screen_height)
         render_villagers(screen, villagers)
 
+        pygame.display.flip()
         clock.tick(60)
 
     pygame.quit()
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    main_loop(INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT)
