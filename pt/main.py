@@ -20,10 +20,11 @@ def main_loop(screen_width, screen_height):
         screen_height (int): Initial height of the game screen.
     """
     # TODO okay, this works, buuuuut
+    # TODO managers?
     screen, client, villagers = initialize_components()
     clock = pygame.time.Clock()
     slider = SpeedSlider(screen, screen_width, screen_height, 200, 20, 1, 10)
-    debug_menu = DebugMenu(screen, screen_width, screen_height)
+    debug_menu = DebugMenu(screen, screen_height)
 
     running = True
     while running:
@@ -35,6 +36,9 @@ def main_loop(screen_width, screen_height):
             elif event.type == pygame.VIDEORESIZE:
                 screen_width, screen_height = event.w, event.h
                 screen = pygame.display.set_mode((screen_width, screen_height), pygame.RESIZABLE)
+                slider = SpeedSlider(screen, screen_width, screen_height, 200, 20, 1, 5)
+                debug_menu.update_positions(screen_height)
+
             slider.handle_event(event)
             debug_menu.handle_event(event)
 
@@ -48,10 +52,10 @@ def main_loop(screen_width, screen_height):
         else:
             update_villagers(villagers, DEFAULT_SPEED_FACTOR, screen_width, screen_height)
 
-        render_villagers(screen, villagers)            
-        debug_menu.render(screen)
+        render_villagers(screen, villagers)
         if debug_menu.is_speed_slider_checked():
             slider.render()
+        debug_menu.render()
 
         pygame.display.flip()
         clock.tick(60)

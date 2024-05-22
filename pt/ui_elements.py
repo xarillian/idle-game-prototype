@@ -3,6 +3,7 @@ import pygame
 
 # TODO these ui elements need to be cleaned up badly after we hit MVP status
 # TODO we can use screen size more effectively, again
+# TODO these are really tightly coupled
 class DebugMenu:
     """
     Represents a debug menu with multiple checkboxes.
@@ -12,12 +13,13 @@ class DebugMenu:
         checkboxes (list[Checkbox]): A list of checkboxes in the debug menu.
     """
 
-    def __init__(self, screen, screen_width, screen_height):
+    def __init__(self, screen, screen_height):
         self.screen = screen
         self.checkboxes = [
-            Checkbox(screen, screen_width - 150, screen_height - 90, 10, 10, ''),
-            Checkbox(screen, screen_width - 150, screen_height - 60, 10, 10, 'Speed Slider')
+            Checkbox(screen, 10, 40, 10, 10, ''),
+            Checkbox(screen, 10, 20, 10, 10, 'Speed Slider')
         ]
+        self.update_positions(screen_height)
 
     def render(self):
         """ Renders the debug menu on the screen. """
@@ -38,6 +40,17 @@ class DebugMenu:
         """ Returns whether the speed slider checkbox is checked. """
         return self.checkboxes[1].checked
 
+    def update_positions(self, screen_height):
+        """
+        Updates the positions of all checkboxes based on the current screen dimensions.
+
+        Args:
+            screen_width (int): The current width of the screen.
+            screen_height (int): The current height of the screen.
+        """
+        for checkbox in self.checkboxes:
+            checkbox.update_position(screen_height)
+
 
 class Checkbox:
     """
@@ -50,8 +63,14 @@ class Checkbox:
         label (str): The label for the checkbox.
     """
 
+    PADDING_BETWEEN_BOX_AND_LABEL = 5
+
     def __init__(self, screen, x, y, width, height, label):
         self.screen = screen
+        self.offset_x = x
+        self.offset_y = y
+        self.width = width
+        self.height = height
         self.rect = pygame.Rect(x, y, width, height)
         self.checked = False
         self.label = label
@@ -64,7 +83,10 @@ class Checkbox:
 
         font = pygame.font.Font(None, 18)
         label_surface = font.render(self.label, True, (255, 255, 255))
-        self.screen.blit(label_surface, (self.rect.x + self.rect.width + 10, self.rect.y))
+        self.screen.blit(
+            label_surface,
+            (self.rect.x + self.rect.width + self.PADDING_BETWEEN_BOX_AND_LABEL, self.rect.y)
+        )
 
     def handle_event(self, event):
         """
@@ -75,6 +97,16 @@ class Checkbox:
         """
         if event.type == pygame.MOUSEBUTTONDOWN and self.rect.collidepoint(event.pos):
             self.checked = not self.checked
+
+    def update_position(self, screen_height):
+        """
+        Updates the checkbox position based on the current screen dimensions.
+
+        Args:
+            screen_height (int): The current height of the screen.
+        """
+        self.rect.x = self.offset_x
+        self.rect.y = screen_height - self.offset_y
 
 
 class SpeedSlider:
