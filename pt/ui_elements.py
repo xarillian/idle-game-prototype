@@ -1,6 +1,82 @@
 import pygame
 
 
+# TODO these ui elements need to be cleaned up badly after we hit MVP status
+# TODO we can use screen size more effectively, again
+class DebugMenu:
+    """
+    Represents a debug menu with multiple checkboxes.
+
+    Attributes:
+        screen (pygame.Surface): The screen on which to render the debug menu.
+        checkboxes (list[Checkbox]): A list of checkboxes in the debug menu.
+    """
+
+    def __init__(self, screen, screen_width, screen_height):
+        self.screen = screen
+        self.checkboxes = [
+            Checkbox(screen, screen_width - 150, screen_height - 90, 10, 10, ''),
+            Checkbox(screen, screen_width - 150, screen_height - 60, 10, 10, 'Speed Slider')
+        ]
+
+    def render(self):
+        """ Renders the debug menu on the screen. """
+        for checkbox in self.checkboxes:
+            checkbox.render()
+
+    def handle_event(self, event):
+        """
+        Handles events for the debug menu.
+
+        Args:
+            event (pygame.event.Event): The event to handle.
+        """
+        for checkbox in self.checkboxes:
+            checkbox.handle_event(event)
+
+    def is_speed_slider_checked(self):
+        """ Returns whether the speed slider checkbox is checked. """
+        return self.checkboxes[1].checked
+
+
+class Checkbox:
+    """
+    Represents a checkbox UI element.
+
+    Attributes:
+        screen (pygame.Surface): The screen on which to render the checkbox.
+        rect (pygame.Rect): The rectangle representing the checkbox.
+        checked (bool): Whether the checkbox is checked.
+        label (str): The label for the checkbox.
+    """
+
+    def __init__(self, screen, x, y, width, height, label):
+        self.screen = screen
+        self.rect = pygame.Rect(x, y, width, height)
+        self.checked = False
+        self.label = label
+
+    def render(self):
+        """ Renders the checkbox and its label on the screen. """
+        pygame.draw.rect(self.screen, (200, 200, 200), self.rect, 2)
+        if self.checked:
+            pygame.draw.rect(self.screen, (200, 200, 200), self.rect)
+
+        font = pygame.font.Font(None, 18)
+        label_surface = font.render(self.label, True, (255, 255, 255))
+        self.screen.blit(label_surface, (self.rect.x + self.rect.width + 10, self.rect.y))
+
+    def handle_event(self, event):
+        """
+        Handles mouse events for the checkbox.
+
+        Args:
+            event (pygame.event.Event): The event to handle.
+        """
+        if event.type == pygame.MOUSEBUTTONDOWN and self.rect.collidepoint(event.pos):
+            self.checked = not self.checked
+
+
 class SpeedSlider:
     """
     Represents a slider to control the speed of villagers.

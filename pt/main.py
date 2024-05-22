@@ -1,14 +1,14 @@
 import pygame
 
-from pt.config import INITIAL_SCREEN_HEIGHT, INITIAL_SCREEN_WIDTH, SPEED_SLIDER_ENABLED
+from pt.config import INITIAL_SCREEN_HEIGHT, INITIAL_SCREEN_WIDTH
 from pt.game import handle_interaction
 from pt.render import (
     interaction_check,
     render_villagers,
 )
 from pt.setup import initialize_components
-from pt.villager import update_villagers
-from pt.ui_elements import SpeedSlider
+from pt.villager import DEFAULT_SPEED_FACTOR, update_villagers
+from pt.ui_elements import DebugMenu, SpeedSlider
 
 
 def main_loop(screen_width, screen_height):
@@ -19,9 +19,11 @@ def main_loop(screen_width, screen_height):
         screen_width (int): Initial width of the game screen.
         screen_height (int): Initial height of the game screen.
     """
+    # TODO okay, this works, buuuuut
     screen, client, villagers = initialize_components()
     clock = pygame.time.Clock()
-    slider = SpeedSlider(screen, screen_width, screen_height, 200, 20, 1, 5)
+    slider = SpeedSlider(screen, screen_width, screen_height, 200, 20, 1, 10)
+    debug_menu = DebugMenu(screen, screen_width, screen_height)
 
     running = True
     while running:
@@ -33,17 +35,23 @@ def main_loop(screen_width, screen_height):
             elif event.type == pygame.VIDEORESIZE:
                 screen_width, screen_height = event.w, event.h
                 screen = pygame.display.set_mode((screen_width, screen_height), pygame.RESIZABLE)
-            if SPEED_SLIDER_ENABLED:  # TODO this is nawt gud
-                slider.handle_event(event)
+            slider.handle_event(event)
+            debug_menu.handle_event(event)
 
         interaction = interaction_check(villagers, current_time)
         if interaction:
             handle_interaction(screen, client, interaction)
 
         screen.fill((0, 0, 0))
-        update_villagers(villagers, slider.current_speed, screen_width, screen_height)
-        render_villagers(screen, villagers)
-        slider.render()
+        if debug_menu.is_speed_slider_checked():
+            update_villagers(villagers, slider.current_speed, screen_width, screen_height)
+        else:
+            update_villagers(villagers, DEFAULT_SPEED_FACTOR, screen_width, screen_height)
+
+        render_villagers(screen, villagers)            
+        debug_menu.render(screen)
+        if debug_menu.is_speed_slider_checked():
+            slider.render()
 
         pygame.display.flip()
         clock.tick(60)
