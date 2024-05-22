@@ -21,7 +21,7 @@ def main_loop(screen_width, screen_height):
     """
     screen, client, villagers = initialize_components()
     clock = pygame.time.Clock()
-    slider = SpeedSlider(screen, 50, 50, 200, 20, 1, 5)
+    slider = SpeedSlider(screen, screen_width, screen_height, 200, 20, 1, 5)
 
     running = True
     while running:

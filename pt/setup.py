@@ -30,7 +30,7 @@ def initialize_pygame():
         pygame.Surface: The screen surface created by Pygame.
     """
     pygame.init()
-    screen = pygame.display.set_mode((INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT), pygame.RESIZABLE)
+    screen = pygame.display.set_mode((INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT), pygame.RESIZABLE | pygame.DOUBLEBUF)
     pygame.display.set_caption(WINDOW_CAPTION)
     return screen
 

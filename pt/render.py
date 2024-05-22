@@ -23,7 +23,6 @@ def render_villagers(view, villagers: list[Villager]):
             (int(villager.position.x), int(villager.position.y)),
             3
         )
-    pygame.display.flip()
 
 
 def interaction_check(villagers: list[Villager], current_time: float):
@@ -76,7 +75,6 @@ def clear_interaction(screen, default_view):
         default_view: The original view before the interaction.
     """
     screen.blit(default_view, (0, 0))
-    pygame.display.flip()
 
 
 def render_chat(screen, text: str):
