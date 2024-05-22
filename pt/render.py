@@ -26,19 +26,6 @@ def render_villagers(view, villagers: list[Villager]):
     pygame.display.flip()
 
 
-def update_villagers(villagers: list[Villager], screen_width: int, screen_height: int):
-    """
-    Updates all villagers in the simulation.
-
-    Args:
-        villagers (list): A list of Villager instances.
-        screen_width (int): The current width of the screen.
-        screen_height (int): The current height of the screen.
-    """
-    for villager in villagers:
-        villager.update_position(screen_width, screen_height)
-
-
 def interaction_check(villagers: list[Villager], current_time: float):
     """
     Checks for interactionable villagers.
