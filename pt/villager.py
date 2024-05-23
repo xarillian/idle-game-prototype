@@ -3,35 +3,12 @@ import pygame
 
 from typing import Optional
 
+from pt.config import SPEED_SLIDER_ENABLED
+from pt.data import load_villager_data, update_villager_data
+
 
 
 DEFAULT_SPEED_FACTOR = 2
-
-
-def initialize_villagers(count: int, screen_width: int, screen_height: int):
-    """
-    Initializes a list of villagers.
-
-    Args:
-        count (int): The number of villagers.
-        screen_width (int): The width of the screen.
-        screen_height (int): The height of the screen.
-    
-    Returns:
-        list: A list of Villager instances.
-    """
-    with open('static/first-names.txt', 'r', encoding='utf-8') as names_file:
-        with open('static/evil-personality-traits.txt', 'r', encoding='utf-8') as traits_file:
-            names = names_file.read().splitlines()
-            traits = traits_file.read().splitlines()
-            return [
-                Villager(
-                    screen_width,
-                    screen_height,
-                    random.choice(names),
-                    [random.choice(traits), random.choice(traits), random.choice(traits)]
-                ) for _ in range(count)
-            ]
 
 
 class Villager:
@@ -45,6 +22,7 @@ class Villager:
 
     tokens_used = 0
     last_interaction = 0
+    _id_counter = 1
 
     def __init__(
             self,
@@ -53,7 +31,12 @@ class Villager:
             name: str,
             personality_traits: list[str],
             speed_factor: Optional[int] = None
-    ) -> None:
+    ) -> None:  
+        # TODO pylint is somewhat correct by too many arguments - e.g. we can get screen width/height smarter-er with screen.get_size()
+        # TODO make it so pylint doesn't give this warning
+        self.id = Villager._id_counter  # TODO this should be str
+        Villager._id_counter += 1
+
         self.x_boundary = screen_width
         self.y_boundary = screen_height
         self.name = name
@@ -101,3 +84,48 @@ class Villager:
         elif self.position.y > screen_height:
             self.position.y = screen_height
             self.velocity.y = -self.velocity.y
+
+    def update_speed(self, new_speed: float) -> None:
+        """
+        Updates the villager's speed and adjusts the velocity accordingly.
+        
+        Args:
+            new_speed (float): The new speed factor.
+        """
+        self.speed = new_speed
+        self.velocity = self.velocity.normalize() * self.speed
+
+    def retrieve_data(self):
+        """
+        Retrieves the villager's data in the JSON file.
+
+        return:
+            (dict): The stored data for the villager.
+        """
+        villager_data = load_villager_data()
+        return villager_data[f'{self.id}']
+
+    def update_data(self, updated_data: dict):
+        """
+        Updates the villager's data in the JSON file.
+
+        Args:
+            updated_data (dict): The updated data for the villager.
+        """
+        update_villager_data(f'{self.id}', updated_data)
+
+
+def update_villagers(villagers: list[Villager], new_speed, screen_width: int, screen_height: int):
+    """
+    Updates all villagers in the simulation.
+
+    Args:
+        villagers (list): A list of Villager instances.
+        new_speed (float): The new speed factor.
+        screen_width (int): The current width of the screen.
+        screen_height (int): The current height of the screen.
+    """
+    for villager in villagers:
+        villager.update_position(screen_width, screen_height)
+        if SPEED_SLIDER_ENABLED:  # TODO this is bad for scalability and also it hurts my heart
+            villager.update_speed(new_speed)

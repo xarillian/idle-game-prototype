@@ -1,0 +1,572 @@
+{
+    "1": {
+        "name": "Lulu",
+        "core_personality": [
+            "Stubborn",
+            "Versatile",
+            "Unreliable"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Sonya": {
+                    "conversation_summaries": [
+                        "I'm on my own here, and so is Sonya. We both handle it in our own ways\u2014she thrives on the challenge, and I manage",
+                        "Our future hinges on our determination. We need the leader's guidance to avoid aimless effort. While Sonya suggests flexibility and independent progress, I argue"
+                    ],
+                    "opinion": -1
+                },
+                "Cristin": {
+                    "conversation_summaries": [
+                        "Lulu feels the challenges are relentless and focuses on surviving day-by-day, despite Cristin's encouragement to see obstacles as opportunities and build their future gradually",
+                        "Cristin informed Lulu about incoming storms and the need for shelter fortification. Lulu agreed, prioritizing wall reinforcement and checking water channels, and planned to"
+                    ],
+                    "opinion": 0
+                },
+                "Damara": {
+                    "conversation_summaries": [
+                        "I haven't met the leader yet but can manage. Damara insists meeting the leader is crucial for coordination and progress. I'll meet them, but it's not",
+                        "Damara wants me to meet the leader soon for better coordination. I prefer to focus on immediate tasks first but agree to meet the leader after making some"
+                    ],
+                    "opinion": 0
+                },
+                "Rafaela": {
+                    "conversation_summaries": [
+                        "Meeting the leader is essential for coordination despite the need for fast, independent action. Balance is key. Start tasks now but prioritize meeting the leader.",
+                        "Lulu: I noticed Jaymee on security, Sonya gathering herbs, Colin handling repairs, and Eileen tending to animals. Rafaela sees Ben",
+                        "Lulu prefers the quiet of the forest edge near the hills for thinking and planning, finds the clearing by the stream noisy for meetings, and believes silence"
+                    ],
+                    "opinion": 1
+                },
+                "Delcina": {
+                    "conversation_summaries": [
+                        "Delcina updated me on food, water, and new storage building progress, urging me to meet the leader for better coordination. I emphasized focusing on my"
+                    ],
+                    "opinion": 0
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "Lulu should take away that she and Sonya both understand the challenges of being independent.",
+                "Focus on taking it one step at a time; each small effort contributes to a larger success.",
+                "Lulu should prioritize meeting the leader to ensure effective coordination and progress.",
+                "Lulu should take away that while meeting the leader is crucial, balancing preparation for the meeting with immediate action demonstrates necessary flexibility.",
+                "Coordinating with the leader promptly will streamline efforts and save time in the long run.",
+                "Lulu should take away that while independent action can initiate momentum, coordinating with the leader ensures that efforts are aligned and effective. Balancing both immediate action",
+                "Lulu should prioritize meeting with the leader to ensure her efforts align with the group's longer-term goals and improve coordination.",
+                "It's great to recognize and appreciate how everyone is naturally falling into their roles, creating balance and efficiency within the group.",
+                "Different surroundings can uniquely support focus and relaxation for different individuals.",
+                "Lulu should prioritize reinforcing the shelter walls, especially those facing the wind."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "2": {
+        "name": "Damara",
+        "core_personality": [
+            "Responsible",
+            "Imaginative",
+            "Decisive"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Rafaela": {
+                    "conversation_summaries": [
+                        "The thick fog feels mysterious and challenging to navigate, but it adds adventure and emphasizes the importance of sticking together and ensuring everyone's safety."
+                    ],
+                    "opinion": 0
+                },
+                "Cristin": {
+                    "conversation_summaries": [
+                        "Focus on securing water, shelter, and food for survival. Coordination with Cristin to motivate and organize the crew. Prioritize water sources first."
+                    ],
+                    "opinion": 0
+                },
+                "Sonya": {
+                    "conversation_summaries": [
+                        "Sonya loves diverse, physically demanding work. Damara coordinates tasks, ensuring efficient teamwork, thriving on plans coming to life. Both value their contributions to"
+                    ],
+                    "opinion": 1
+                },
+                "Lulu": {
+                    "conversation_summaries": [
+                        "Damara emphasizes the importance of meeting the leader for effective coordination and prioritizes it despite Lulu's reluctance.",
+                        "Damara argues that meeting the leader is crucial for coordination, especially in the current conditions. Lulu prefers to handle immediate needs first and meet the leader later"
+                    ],
+                    "opinion": 0
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "Damara should take away the importance of coordinating and ensuring everyone stays together for safety in challenging conditions.",
+                "Coordination and teamwork are essential to turn plans into action.",
+                "Delegating and coordinating effectively fosters a well-balanced and thriving community.",
+                "Damara should prioritize helping Lulu meet the leader soon to enhance team coordination and ensure everyone's safety and success.",
+                "Coordinating early with the leader will streamline efforts and save time in tackling immediate needs."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "3": {
+        "name": "Rachele",
+        "core_personality": [
+            "Generous",
+            "Adaptable",
+            "Organized"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Sonya": {
+                    "conversation_summaries": [
+                        "Met Sonya, both alone here, managing independently. Agreed to support each other.",
+                        "Rachele is confident in her collaborative future with Sonya and Delcina. She proposes organizing resources and prioritizing shelter and food storage. She agrees"
+                    ],
+                    "opinion": 2
+                },
+                "Delcina": {
+                    "conversation_summaries": [
+                        "Rachele introduced Sonya to Delcina, highlighting her contributions and reliability in organizing supplies, and encouraged collaboration."
+                    ],
+                    "opinion": 1
+                },
+                "Suzie": {
+                    "conversation_summaries": [
+                        "Rachele agrees shelter and food storage should be prioritized and suggests organizing resources and assigning tasks. She supports Suzie's idea of a community meeting tonight"
+                    ],
+                    "opinion": 1
+                },
+                "Jaymee": {
+                    "conversation_summaries": [
+                        "Rachele is talking with Jaymee about the importance of teamwork and collaboration in their new environment. She emphasizes organizing resources and prioritizing safety, shelter"
+                    ],
+                    "opinion": 1
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "You and Sonya are in similar situations and can support each other.",
+                "Rachele should note that Delcina is interested in collaborating with Sonya and is willing to offer help if needed.",
+                "Rachele should focus on solidifying roles and efficiently organizing resources to prioritize shelter and food storage.",
+                "Teamwork and coordination are crucial for efficient resource management and task completion.",
+                "Rachele should focus on organizing resources and prioritizing shelter and food storage, while fostering teamwork and collaboration."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "4": {
+        "name": "Delcina",
+        "core_personality": [
+            "Rational",
+            "Hopeful",
+            "Assertive"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Cristin": {
+                    "conversation_summaries": [
+                        "Delcina views the new land as full of promise. She is committed to building a prosperous community and believes in starting with securing basic needs like food,"
+                    ],
+                    "opinion": 1
+                },
+                "Rafaela": {
+                    "conversation_summaries": [
+                        "Delcina saw peaceful deer and discussed the importance of setting rabbit traps for survival with Rafaela, agreeing to teach others to handle traps.",
+                        "Delcina sees the new building as a positive development and emphasizes the need for planning its use. She agrees with Rafaela on using it for collaborative teaching"
+                    ],
+                    "opinion": 1
+                },
+                "Rachele": {
+                    "conversation_summaries": [
+                        "Rachele mentioned Sonya's helpfulness. Delcina hasn't met Sonya yet but plans to collaborate with her. Rachele described Sonya"
+                    ],
+                    "opinion": 0
+                },
+                "Magdalene": {
+                    "conversation_summaries": [
+                        "Delcina believes that focusing on basic needs first\u2014food, water, shelter\u2014will create stability and a strong foundation for further success, with teamwork being",
+                        "Delcina is emphasizing the importance of working together to meet basic needs first and believes friendships will naturally develop from these efforts. She inquires about Magdalene"
+                    ],
+                    "opinion": 1
+                },
+                "Lulu": {
+                    "conversation_summaries": [
+                        "Secured more resources, slow progress on storage building, urging Lulu to meet the leader for better coordination."
+                    ],
+                    "opinion": 0
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "Delcina should take away that securing basic needs like food, water, and shelter is the essential first step towards building a prosperous community.",
+                "Focusing on teamwork and collaboration ensures that essential tasks like setting traps for food are efficiently managed.",
+                "Collaboration and planning for the new building's use will enhance their collective strength and efficiency.",
+                "Delcina should take away that Sonya is a valuable and capable team member who is independent but open to collaboration.",
+                "Delcina should focus on building a strong foundation by securing basic needs, as this will establish stability and enable future success.",
+                "Coordination with the leader is crucial for long-term success.",
+                "Focus on teamwork and meeting basic needs will naturally lead to building friendships."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "5": {
+        "name": "Cristin",
+        "core_personality": [
+            "Independent",
+            "Inspirational",
+            "Witty"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Delcina": {
+                    "conversation_summaries": [
+                        "Cristin envisions a hopeful future with Delcina, emphasizing strong leadership and practical steps to build a prosperous community, starting with securing basic needs."
+                    ],
+                    "opinion": 1
+                },
+                "Lulu": {
+                    "conversation_summaries": [
+                        "Faced with challenges, Cristin encourages staying focused and seeing obstacles as opportunities. She emphasizes teamwork and persistence, acknowledging Lulu's struggles but advocating for incremental",
+                        "Cristin stresses the importance of immediate fortifications due to incoming storms and delegates tasks to Lulu, emphasizing shelter reinforcement and water channel checks. They agree to"
+                    ],
+                    "opinion": 2
+                },
+                "Damara": {
+                    "conversation_summaries": [
+                        "Cristin inquired about Damara\u2019s plans and learned she\u2019s busy with essential survival tasks. Cristin emphasized motivating the team and ensuring basic needs are"
+                    ],
+                    "opinion": 1
+                },
+                "Suzie": {
+                    "conversation_summaries": [
+                        "Cristin saw a majestic stag, admired Suzie's fox sighting, emphasized the area's potential, and suggested focusing on immediate needs like shelter and food"
+                    ],
+                    "opinion": 1
+                },
+                "Jaymee": {
+                    "conversation_summaries": [
+                        "Cristin feels settled and is prioritizing essentials like food, water, and shelter. She appreciates Jaymee's support and asks her to watch for resources"
+                    ],
+                    "opinion": 1
+                },
+                "Magdalene": {
+                    "conversation_summaries": [
+                        "Cristin is focused on preparing for an impending thunderstorm by securing shelters, double-checking food supplies, assigning tasks, and maintaining communication about resources and"
+                    ],
+                    "opinion": 0
+                },
+                "Rafaela": {
+                    "conversation_summaries": [
+                        "Cristin sees Rafaela as having vital building and crafting skills. Cristin focuses on organization and priority setting. Together, they aim to efficiently secure food"
+                    ],
+                    "opinion": 1
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "Secure basic needs first\u2014food, water, and shelter\u2014as the foundation for building a prosperous community.",
+                "Cristin should take away that overcoming challenges is a gradual process, built on taking consistent, small steps each day.",
+                "Coordination and division of tasks are crucial to building a thriving community; focus on essential needs like water, shelter, and food.",
+                "Cristin should take away that prioritizing essential needs like shelter and food is crucial for their settlement's survival before delving into exploration and documentation of wildlife",
+                "Cristin should remember to check in with Jaymee regularly for updates on resources and potential threats.",
+                "Stay organized and ensure all tasks and supplies are secured before the storm hits.",
+                "Cristin should take away that clear, actionable communication and prioritization in times of crisis ensure effective problem-solving and safety for the community.",
+                "Cristin should recognize that Rafaela's practical skills in building and crafting will be crucial for ensuring solid shelters and useful tools, which aligns perfectly with Crist"
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "6": {
+        "name": "Suzie",
+        "core_personality": [
+            "Proactive",
+            "Persuasive",
+            "Gullible"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Magdalene": {
+                    "conversation_summaries": [
+                        "Suzie thinks it's a lovely day, is curious about village news, hears about a new meeting hall and explorations, and proposes teaming up with Magdal"
+                    ],
+                    "opinion": 1
+                },
+                "Rafaela": {
+                    "conversation_summaries": [
+                        "Suzie is thrilled about the new meeting hall becoming a hub for village projects and is eager to involve everyone, especially Magdalene. She's excited to brainstorm"
+                    ],
+                    "opinion": 1
+                },
+                "Cristin": {
+                    "conversation_summaries": [
+                        "Suzie shared her excitement about spotting vibrant foxes and proposed exploring wildlife to benefit their settlement. She agreed with Cristin's suggestion to prioritize basic needs"
+                    ],
+                    "opinion": 1
+                },
+                "Rachele": {
+                    "conversation_summaries": [
+                        "Suzie is enthusiastic about the new meeting hall and suggests starting with plans for shelter and food storage. She proposes gathering the community tonight to organize roles and"
+                    ],
+                    "opinion": 1
+                },
+                "Sonya": {
+                    "conversation_summaries": [
+                        "Suzie has met Magdalene and discussed village projects. She suggests gathering at the meeting hall to plan roles for the projects."
+                    ],
+                    "opinion": 1
+                },
+                "Jaymee": {
+                    "conversation_summaries": [
+                        "Suzie: Excited for the settlement's future, I proposed an afternoon meeting to discuss project ideas. Jaymee and Magdalene agreed, focusing on"
+                    ],
+                    "opinion": 1
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "Suzie should take away that Magdalene is enthusiastic about joining her in both the treasure hunt and village projects.",
+                "Use the new building as a central meeting hall to rally the community and brainstorm ideas for village projects.",
+                "Suzie should take away that while it's important to document and explore the wildlife, prioritizing shelter and food is essential for the settlement's immediate survival and",
+                "Suzie's key takeaway should be to focus on organizing the community to gather at the new meeting hall to plan and assign roles for shelter and food storage projects",
+                "Coordinate a meeting in the new meeting hall this afternoon to discuss and assign roles for village projects.",
+                "Prioritize safety and resource management in the upcoming meeting."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "7": {
+        "name": "Jaymee",
+        "core_personality": [
+            "Aggressive",
+            "Courageous",
+            "Diplomatic"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Magdalene": {
+                    "conversation_summaries": [
+                        "Jaymee hasn't completed a task yet but is eager to do it. Magdalene reassures her that the leader is approachable and encourages her. Jaymee"
+                    ],
+                    "opinion": 1
+                },
+                "Rafaela": {
+                    "conversation_summaries": [
+                        "Jaymee felt upset when Rafaela almost caused an accident but accepted her apology and emphasized the importance of safety. She agreed on working together for a common",
+                        "Jaymee and Rafaela are both sent by the king to establish a new settlement. Jaymee emphasizes exploration and safety while ensuring smooth operations. Rafaela",
+                        "The new building is progressing well and will be a perfect hub for collaboration and innovation. While ensuring safety and functionality, meetings there will enhance progress and coordination"
+                    ],
+                    "opinion": 2
+                },
+                "Cristin": {
+                    "conversation_summaries": [
+                        "Settling in has been tough, but I'm adapting and ensuring everything runs smoothly. Cristin is prioritizing essentials and adjusting well. We've agreed to stay"
+                    ],
+                    "opinion": 1
+                },
+                "Rachele": {
+                    "conversation_summaries": [
+                        "Focused on safety and exploration, collaboration is key to making the place thrive. Rachele agrees; teamwork and resource organization are crucial. We'll touch base"
+                    ],
+                    "opinion": 1
+                },
+                "Suzie": {
+                    "conversation_summaries": [
+                        "Jaymee felt it was crucial to prioritize safety and resource management. She agreed to the meeting, emphasizing the need for everyone's cooperation and a focus on safety"
+                    ],
+                    "opinion": 1
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "Jaymee is eager and ready to engage with the approachable leader and explore the new opportunities ahead.",
+                "Jaymee should take away that Rafaela apologized and agreed to prioritize safety moving forward.",
+                "Great teamwork and commitment to safety are essential as you build and explore the new settlement, Jaymee.",
+                "Focus on safety and resources while settling in.",
+                "Teamwork and communication are essential for thriving in this new environment.",
+                "Jaymee should take away the importance of prioritizing and leading discussions on safety protocols during the meeting.",
+                "Prioritize safety and organization to maximize the benefits of the new building and enhance collaboration."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "8": {
+        "name": "Sonya",
+        "core_personality": [
+            "Dependable",
+            "Flexible",
+            "Energetic"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Lulu": {
+                    "conversation_summaries": [
+                        "Sonya discovers both she and Lulu are without family nearby. They bond over their challenges, with Sonya thriving on them and Lulu managing independently but finding",
+                        "Sonya believes in being proactive and flexible, balancing immediate work while also planning to meet the leader for direction."
+                    ],
+                    "opinion": 0
+                },
+                "Rachele": {
+                    "conversation_summaries": [
+                        "Sonya met Rachele, learned they both have no family here, shared that she enjoys the challenge, and offered her support. Rachele",
+                        "Sonya agrees with Rachele's plan for organizing and prioritizing shelter and food storage. She\u2019s ready to handle various tasks and ensure smooth progress"
+                    ],
+                    "opinion": 2
+                },
+                "Damara": {
+                    "conversation_summaries": [
+                        "Sonya appreciates diverse roles, enjoys farming, and stays flexible across various tasks, finding excitement and dependability in her work."
+                    ],
+                    "opinion": 1
+                },
+                "Suzie": {
+                    "conversation_summaries": [
+                        "Sonya and Suzie shared updates on new acquaintances and project work. They agreed to meet at the new meeting hall to coordinate efforts efficiently."
+                    ],
+                    "opinion": 1
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "Sonya should takeaway that Lulu is also navigating challenges independently and may appreciate mutual support.",
+                "Sonya should take away that both she and Rachele are in a similar situation without family nearby and can support each other.",
+                "Sonya should recognize that flexibility and adaptability in handling various tasks contribute to the community's overall success and cohesion.",
+                "Sonya should take away that balancing flexibility and clear direction is key, so it's important to both start making progress independently and ensure the meeting with the leader",
+                "Sonya should focus on gathering materials for shelter construction and coordinating with Delcina for food storage setup to ensure efficient teamwork.",
+                "It's essential for Sonya to know that organizing a group meeting this afternoon at the new meeting hall will help streamline their project's planning and role assignments."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "9": {
+        "name": "Magdalene",
+        "core_personality": [
+            "Adventurous",
+            "Modest",
+            "Sensitive"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Suzie": {
+                    "conversation_summaries": [
+                        "Magdalene: It\u2019s a beautiful day. I shared news about a new village meeting hall and exploration plans. Suzie mentioned a hidden treasure,"
+                    ],
+                    "opinion": 1
+                },
+                "Jaymee": {
+                    "conversation_summaries": [
+                        "Magdalene asked if Jaymee had done something yet; Jaymee hadn't. Magdalene reassured Jaymee about an approachable leader. Jaymee is"
+                    ],
+                    "opinion": 1
+                },
+                "Delcina": {
+                    "conversation_summaries": [
+                        "Magdalene agrees with Delcina that securing basic needs\u2014food, water, shelter\u2014is crucial. They both believe teamwork will build a stable foundation for",
+                        "Magdalene: Slow progress in knowing everyone; focusing on teamwork and essentials, believing friendships will develop. Repeated query on new connections from both sides"
+                    ],
+                    "opinion": 1
+                },
+                "Cristin": {
+                    "conversation_summaries": [
+                        "We agreed to secure our shelters and supplies before the storm. Cristin will handle the east end, and I'll cover the west. We'll stay organized and"
+                    ],
+                    "opinion": 1
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "Magdalene should take away that Suzie is eager to join village activities and explore, making her a potential partner for both the meeting hall project and",
+                "Jaymee is eager and ready to embrace the new opportunities and challenges ahead.",
+                "Establishing basic needs first creates a strong foundation for long-term success.",
+                "Magdalene should recognize that both she and Delcina agree on the importance of teamwork and meeting basic needs as a foundation for building friendships.",
+                "Magdalene should focus on making sure their supplies are well-protected from getting drenched."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    },
+    "10": {
+        "name": "Rafaela",
+        "core_personality": [
+            "Easygoing",
+            "Confident",
+            "Helpful"
+        ],
+        "memory": {
+            "other_villagers": {
+                "Damara": {
+                    "conversation_summaries": [
+                        "The thick fog feels mysterious and adds adventure. Rafaela suggests sticking together for safety and helping each other out. They'll ensure everyone checks in regularly."
+                    ],
+                    "opinion": 1
+                },
+                "Delcina": {
+                    "conversation_summaries": [
+                        "Delcina noticed peaceful deer; Rafaela saw quick rabbits and mentioned traps. They agreed on teamwork for setting traps to ensure enough food, with Rafaela",
+                        "Rafaela is excited about the new building, seeing it as a communal space for teaching and learning skills together. She wants to gather everyone to plan"
+                    ],
+                    "opinion": 2
+                },
+                "Suzie": {
+                    "conversation_summaries": [
+                        "Rafaela is excited about the new meeting hall for village projects, eager to collaborate, and ready to help brainstorm ideas."
+                    ],
+                    "opinion": 1
+                },
+                "Jaymee": {
+                    "conversation_summaries": [
+                        "Rafaela apologized for the near collision and agreed with Jaymee about the importance of safety, expressing a commitment to teamwork and improvement.",
+                        "Rafaela feels aligned with Jaymee, both under royal command to establish and settle the land, focusing on practical skills and safety. They agree to",
+                        "Rafaela is enthusiastic about the progress of the new building, seeing it as a hub for collaboration and innovation. She agrees with Jaymee on priorit"
+                    ],
+                    "opinion": 3
+                },
+                "Lulu": {
+                    "conversation_summaries": [
+                        "Rafaela believes coordinating with the leader is essential for effective teamwork and planning, but immediate action and adaptability are also necessary. She suggests starting tasks now",
+                        "Rafaela is impressed by how everyone's finding their roles, particularly Jaymee's focus on security, Sonya's on herbs, Ben's construction,",
+                        "Rafaela loves the oak tree for relaxation and the stream clearing for team meetings, finding the water calming and helpful for clarity."
+                    ],
+                    "opinion": 2
+                },
+                "Cristin": {
+                    "conversation_summaries": [
+                        "Cristin asked about my skills, and I mentioned my strengths in building, crafting, and coordination. We agreed that my practical skills and Cristin's"
+                    ],
+                    "opinion": 1
+                }
+            },
+            "history": [
+                "You came from far away, at the behest of your king, to settle an uninhabited land.",
+                "The fog makes safety and sticking together crucial.",
+                "Teamwork and sharing skills are essential for ensuring enough food.",
+                "The new building will be a hub for collaborative teaching and learning, so it's essential to start planning and ensure everyone is aligned.",
+                "Rafaela should take away that active involvement and collaboration in utilizing the new meeting hall will be crucial for the success and flourishing of their village projects.",
+                "Rafaela should remember to be more aware of her surroundings to ensure safety.",
+                "Rafaela should remember that both she and Jaymee prioritize safety and are committed to putting in effort to make the settlement thrive.",
+                "Balancing immediate action with timely coordination through the leader's guidance is crucial for efficiency and avoiding chaos.",
+                "Rafaela should be reassured that the group is naturally finding their roles, contributing to a well-balanced and supportive community.",
+                "Rafaela should note that different environments help different people focus\u2014while she finds the sound of water calming and conducive to thinking, Lulu prefers silence for",
+                "Rafaela's building and crafting skills are crucial in creating sturdy shelters and tools, which align perfectly with Cristin's focus on organization and prioritizing",
+                "Keep safety and organization as priorities to ensure the new building serves its purpose well."
+            ]
+        },
+        "flags": {
+            "is_new": false
+        }
+    }
+}
