@@ -4,7 +4,8 @@ from pt.villager import Villager
 
 
 INTERACTION_RADIUS = 30
-INTERACTION_TIMEOUT = 20000  # milliseconds (10 seconds)
+GENERAL_INTERACTION_COOLDOWN = 30000  # 30 seconds in milliseconds
+PAIR_INTERACTION_COOLDOWN   = 120000  # 2 minutes in milliseconds
 
 
 def render_villagers(view, villagers: list[Villager]):
@@ -25,24 +26,17 @@ def render_villagers(view, villagers: list[Villager]):
         )
 
 
-def interaction_check(villagers: list[Villager], current_time: float):
-    """
-    Checks for interactionable villagers.
+def interaction_check(villagers: list[Villager], current_time: float, interaction_cooldowns: dict, last_interaction_time: float):
+    """ Checks for interactionable villagers. """
+    if current_time - last_interaction_time < GENERAL_INTERACTION_COOLDOWN:
+        return None
 
-    Args:
-        villagers (list[Villager]): A list of Villager instances.
-    
-    Returns:
-        tuple[Villager, Villager]: A pair of villagers if they are within an interactable radius.
-    """
     for i, villager1 in enumerate(villagers):
         for villager2 in villagers[i + 1:]:
-            if current_time - villager1.last_interaction > INTERACTION_TIMEOUT and \
-                    current_time - villager2.last_interaction > INTERACTION_TIMEOUT:
+            pair_key = (villager1.id, villager2.id)
+            if pair_key not in interaction_cooldowns or current_time - interaction_cooldowns[pair_key] > PAIR_INTERACTION_COOLDOWN:
                 distance = villager1.position.distance_to(villager2.position)
                 if distance < INTERACTION_RADIUS:
-                    villager1.last_interaction = current_time  # TODO shouldn't set this here, decomp
-                    villager2.last_interaction = current_time
                     return villager1, villager2
     return None
 

@@ -4,6 +4,7 @@ import pygame
 from typing import Optional
 
 from pt.config import SPEED_SLIDER_ENABLED
+from pt.data import load_villager_data, update_villager_data
 
 
 
@@ -21,6 +22,7 @@ class Villager:
 
     tokens_used = 0
     last_interaction = 0
+    _id_counter = 1
 
     def __init__(
             self,
@@ -32,6 +34,9 @@ class Villager:
     ) -> None:  
         # TODO pylint is somewhat correct by too many arguments - e.g. we can get screen width/height smarter-er with screen.get_size()
         # TODO make it so pylint doesn't give this warning
+        self.id = Villager._id_counter  # TODO this should be str
+        Villager._id_counter += 1
+
         self.x_boundary = screen_width
         self.y_boundary = screen_height
         self.name = name
@@ -89,6 +94,25 @@ class Villager:
         """
         self.speed = new_speed
         self.velocity = self.velocity.normalize() * self.speed
+
+    def retrieve_data(self):
+        """
+        Retrieves the villager's data in the JSON file.
+
+        return:
+            (dict): The stored data for the villager.
+        """
+        villager_data = load_villager_data()
+        return villager_data[f'{self.id}']
+
+    def update_data(self, updated_data: dict):
+        """
+        Updates the villager's data in the JSON file.
+
+        Args:
+            updated_data (dict): The updated data for the villager.
+        """
+        update_villager_data(f'{self.id}', updated_data)
 
 
 def update_villagers(villagers: list[Villager], new_speed, screen_width: int, screen_height: int):

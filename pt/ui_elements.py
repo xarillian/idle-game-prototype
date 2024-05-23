@@ -4,6 +4,8 @@ import pygame
 # TODO these ui elements need to be cleaned up badly after we hit MVP status
 # TODO we can use screen size more effectively, again
 # TODO these are really tightly coupled
+
+
 class DebugMenu:
     """
     Represents a debug menu with multiple checkboxes.

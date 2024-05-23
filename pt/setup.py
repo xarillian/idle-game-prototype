@@ -6,6 +6,7 @@ import openai
 from dotenv import load_dotenv
 
 from pt.config import INITIAL_SCREEN_WIDTH, INITIAL_SCREEN_HEIGHT, INITIAL_VILLAGER_COUNT, WINDOW_CAPTION
+from pt.data import create_new_villager_data, save_villager_data
 from pt.villager import Villager
 
 
@@ -37,16 +38,16 @@ def initialize_pygame():
 
 def initialize_villagers():
     """
-    Initializes a list of villagers.
+    Initializes a list of villagers and their memory.
 
     Returns:
         list: A list of Villager instances.
     """
     with open('static/first-names.txt', 'r', encoding='utf-8') as names_file:
-        with open('static/evil-personality-traits.txt', 'r', encoding='utf-8') as traits_file:
+        with open('static/personality-traits.txt', 'r', encoding='utf-8') as traits_file:
             names = names_file.read().splitlines()
             traits = traits_file.read().splitlines()
-            return [
+            villagers = [
                 Villager(
                     INITIAL_SCREEN_WIDTH,
                     INITIAL_SCREEN_HEIGHT,
@@ -54,6 +55,11 @@ def initialize_villagers():
                     [random.choice(traits) for _ in range(3)]
                 ) for _ in range(INITIAL_VILLAGER_COUNT)
             ]
+
+    villager_data = create_new_villager_data(villagers)
+    save_villager_data(villager_data)
+
+    return villagers
 
 
 def initialize_llm():

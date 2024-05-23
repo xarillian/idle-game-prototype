@@ -26,6 +26,9 @@ def main_loop(screen_width, screen_height):
     slider = SpeedSlider(screen, screen_width, screen_height, 200, 20, 1, 10)
     debug_menu = DebugMenu(screen, screen_height)
 
+    interaction_cooldowns = {}
+    last_interaction_time = 0
+
     running = True
     while running:
         current_time = pygame.time.get_ticks()
@@ -42,9 +45,9 @@ def main_loop(screen_width, screen_height):
             slider.handle_event(event)
             debug_menu.handle_event(event)
 
-        interaction = interaction_check(villagers, current_time)
+        interaction = interaction_check(villagers, current_time, interaction_cooldowns, last_interaction_time)
         if interaction:
-            handle_interaction(screen, client, interaction)
+            last_interaction_time = handle_interaction(screen, client, interaction, current_time, interaction_cooldowns)
 
         screen.fill((0, 0, 0))
         if debug_menu.is_speed_slider_checked():

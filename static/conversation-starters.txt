@@ -1,0 +1,20 @@
+{x} bumps into {y} by accident.
+{x} and {y} discuss the weather.
+{x} and {y} talk about recent events in the village.
+{x} and {y} share their thoughts on the settlement's future.
+{x} asks {y} about their journey to the settlement.
+{x} and {y} discuss the different animals they have seen.
+{x} asks {y} if they have any family in the settlement.
+{x} and {y} talk about the best places to gather resources.
+{x} shares a story about their previous home with {y}.
+{x} and {y} discuss the strange noises they heard last night.
+{x} asks {y} if they have met the settlement leader.
+{x} and {y} talk about their hopes for the settlement.
+{x} asks {y} if they have found any interesting plants.
+{x} and {y} discuss the challenges they have faced so far.
+{x} shares their excitement about a new building being constructed.
+{x} and {y} talk about the different skills they bring to the settlement.
+{x} asks {y} if they have made any new friends.
+{x} and {y} discuss their favorite places in the settlement.
+{x} asks {y} about their plans for the day.
+{x} and {y} talk about the different roles people have in the settlement.
